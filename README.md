@@ -1,6 +1,6 @@
 # Ecommerce Product Page
 
-- Live website -()
+- Live website -(https://cpwd-ecommerce-product-page.netlify.app/)
 
 ## Table of contents
 
@@ -36,21 +36,7 @@ Users should be able to:
 
 ### What I learned
 
-=
-
--
-
-```JavaScript
-
-```
-
-```JavaScript
-=
-```
-
-```JavaScript
-
-```
+-...
 
 ### Useful resources
 
