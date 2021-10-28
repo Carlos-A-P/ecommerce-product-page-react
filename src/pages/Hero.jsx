@@ -1,9 +1,9 @@
 import React from "react";
-import CardModal from "../components/modals/CardModal";
-import ProfileModal from "../components/modals/ProfileModal";
 import Image from "../assets/images/image-product-1.jpg";
 import PrevBtn from "../assets/images/icon-previous.svg";
 import NextBtn from "../assets/images/icon-next.svg";
+import MinBtn from "../assets/images/icon-minus.svg";
+import PlusBtn from "../assets/images/icon-plus.svg";
 import "../styles/Hero.css";
 
 export default function Hero() {
@@ -46,15 +46,15 @@ export default function Hero() {
 					<div className="description-btn">
 						<div className="quantity-wrapper">
 							<button className="min"></button>
-							<p className="quantity"></p>
+							<p className="quantity">0</p>
 							<button className="add"></button>
 						</div>
-						<button className="add-to-cart"></button>
+						<button className="add-to-cart">
+							<span>Add to cart</span>
+						</button>
 					</div>
 				</div>
 			</div>
-			<CardModal />
-			<ProfileModal />
 		</main>
 	);
 }
