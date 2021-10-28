@@ -13,4 +13,13 @@
 	font-family: "Kumbh Sans", sans-serif;
 	font-size: 16px;
 	background-color: white;
+	position: relative;
+	min-height: 100vh;
+}
+
+button {
+	/* outline: none; */
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 }

@@ -1,0 +1,42 @@
+.main-image {
+	height: 88vw;
+	max-height: 600px;
+	overflow: hidden;
+	position: relative;
+}
+
+.main-image img {
+	width: 100%;
+	height: auto;
+}
+
+.navigation-btns {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	right: 0;
+	padding: 0 15px;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* .navigation-btns button:focus {
+	box-shadow: 0px 0px 0px 3px rgb(0, 0, 0);
+} */
+
+.navigation-btns img {
+	width: auto;
+	height: 45%;
+}
+
+.prev,
+.next {
+	background-color: white;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
