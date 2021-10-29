@@ -1,6 +1,7 @@
 .navbar {
 	display: flex;
 	padding: 25px;
+	align-items: center;
 }
 
 /* button:focus {
@@ -97,4 +98,117 @@
 
 .cart:hover {
 	filter: brightness(0);
+}
+
+@media (min-width: 750px) {
+	.navbar {
+		border-bottom: 1px solid hsla(220, 14%, 75%, 0.356);
+	}
+}
+
+@media (min-width: 900px) {
+	.left-side button[aria-expanded="false"] ~ div#links {
+		display: inline-block;
+	}
+
+	.navbar {
+		padding: 0;
+	}
+
+	.left-side button {
+		display: none;
+	}
+
+	.left-side {
+		margin-left: 25px;
+		display: flex;
+		align-items: center;
+		gap: 25px;
+	}
+
+	.rightSide {
+		margin-right: 25px;
+	}
+
+	#links {
+		position: static;
+		z-index: 10;
+		background-color: transparent;
+		display: flex;
+		width: auto;
+		padding: 0;
+		height: 100%;
+	}
+
+	#links div {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 2vw;
+	}
+
+	#links a {
+		color: black;
+		font-weight: 700;
+		text-decoration: none;
+		font-size: 1.1rem;
+		padding: 0px;
+		padding: 25px 0;
+		opacity: 0.5;
+	}
+
+	#links a:hover {
+		color: inherit;
+		opacity: 1;
+		box-shadow: inset 0 -4px 0 rgb(255, 125, 27);
+	}
+
+	.rightSide {
+		display: flex;
+		align-items: center;
+		gap: 0;
+	}
+
+	.cart {
+		padding: 25px 10px;
+		margin-right: 1rem;
+	}
+
+	.avatar {
+		border-radius: 50%;
+		height: 35px;
+	}
+
+	.left-side .logo {
+		padding: 25px 0;
+	}
+}
+
+@media (min-width: 1100px) {
+	header {
+		padding: 0 10vw;
+	}
+
+	.left-side {
+		gap: 4vw;
+		margin-left: 0;
+	}
+
+	#links a {
+		padding: 50px 0;
+	}
+
+	.rightSide {
+		margin-right: 0;
+	}
+
+	.cart {
+		padding: 30px 10px;
+		margin-right: 2 rem;
+	}
+
+	.avatar {
+		border-radius: 50%;
+		height: 45px;
+	}
 }

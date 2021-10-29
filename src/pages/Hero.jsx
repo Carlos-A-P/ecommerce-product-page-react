@@ -10,6 +10,7 @@ export default function Hero() {
 	return (
 		<main>
 			<div className="gallery">
+				{/* ==================== */}
 				<div className="main-image">
 					<img src={Image} alt="item image" />
 					<div className="navigation-btns">
@@ -21,7 +22,7 @@ export default function Hero() {
 						</button>
 					</div>
 				</div>
-
+				{/* ================== */}
 				<div className="photo-options">
 					<div className="img img-1"></div>
 					<div className="img img-2"></div>
@@ -55,6 +56,7 @@ export default function Hero() {
 					</div>
 				</div>
 			</div>
+			<div className="images-modal"></div>
 		</main>
 	);
 }

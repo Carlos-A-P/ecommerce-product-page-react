@@ -29,7 +29,7 @@ export default function Navbar() {
 						>
 							<img className="hamburger" src={Hamburger} alt="open menu" />
 						</button>
-						<Link to="/">
+						<Link className="logo" to="/">
 							<img src={Logo} alt="logo" />
 						</Link>
 						<div id="links">
