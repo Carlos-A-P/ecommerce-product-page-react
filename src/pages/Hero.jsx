@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "../assets/images/image-product-1.jpg";
+import ClosePrev from "../assets/images/icon-close.svg";
 import PrevBtn from "../assets/images/icon-previous.svg";
 import NextBtn from "../assets/images/icon-next.svg";
 import MinBtn from "../assets/images/icon-minus.svg";
@@ -10,9 +11,8 @@ export default function Hero() {
 	return (
 		<main>
 			<div className="gallery">
-				{/* ==================== */}
-				<div className="main-image">
-					<img src={Image} alt="item image" />
+				<button className="main-image">
+					<img className="previewed-img" src={Image} alt="item image" />
 					<div className="navigation-btns">
 						<button className="prev">
 							<img src={PrevBtn} alt="previous button" />
@@ -21,13 +21,12 @@ export default function Hero() {
 							<img src={NextBtn} alt="next button" />
 						</button>
 					</div>
-				</div>
-				{/* ================== */}
+				</button>
 				<div className="photo-options">
-					<div className="img img-1"></div>
-					<div className="img img-2"></div>
-					<div className="img img-3"></div>
-					<div className="img img-4"></div>
+					<button className="img img-1 selected"></button>
+					<button className="img img-2"></button>
+					<button className="img img-3"></button>
+					<button className="img img-4"></button>
 				</div>
 			</div>
 			<div className="description">
@@ -56,7 +55,32 @@ export default function Hero() {
 					</div>
 				</div>
 			</div>
-			<div className="images-modal"></div>
+			<div className="images-modal">
+				<div className="wrapper">
+					<div className="modal-gallery">
+						<button className="close-btn">
+							<img src={ClosePrev} alt="close" />
+						</button>
+						<div className="modal-preview">
+							<img className="previewed-img" src={Image} alt="item image" />
+							<div className="navigation-btns">
+								<button className="prev">
+									<img src={PrevBtn} alt="previous button" />
+								</button>
+								<button className="next">
+									<img src={NextBtn} alt="next button" />
+								</button>
+							</div>
+						</div>
+						<div className="photo-options">
+							<button className="img img-1 selected"></button>
+							<button className="img img-2"></button>
+							<button className="img img-3"></button>
+							<button className="img img-4"></button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 	);
 }
