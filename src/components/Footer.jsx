@@ -7,14 +7,19 @@ const FooterAtt = styled.footer`
 	bottom: 15px;
 	width: 100%;
 	transform: translate(0, -50%); */
-	margin: 2rem 0;
+	margin: 2rem 0 1rem;
 
 	.attribution {
 		font-size: 11px;
 		text-align: center;
+		color: hsl(219, 9%, 45%);
 	}
 	.attribution a {
-		color: hsl(228, 45%, 44%);
+		color: hsl(26, 100%, 55%);
+	}
+
+	@media (min-width: 1100px) {
+		margin: 6rem 0 1rem;
 	}
 `;
 

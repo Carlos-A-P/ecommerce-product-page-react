@@ -40,8 +40,8 @@ export default function Hero() {
 						the weather can offer.
 					</p>
 					<div className="price-tag">
-						<div className="price">$125.00</div>
-						<div className="retail-price">$250.00</div>
+						<p className="price">$125.00</p>
+						<p className="retail-price">$250.00</p>
 					</div>
 					<div className="description-btn">
 						<div className="quantity-wrapper">
@@ -55,7 +55,7 @@ export default function Hero() {
 					</div>
 				</div>
 			</div>
-			<div className="images-modal">
+			<div className="images-modal" style={{ display: `none` }}>
 				<div className="wrapper">
 					<div className="modal-gallery">
 						<button className="close-btn">

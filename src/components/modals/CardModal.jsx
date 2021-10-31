@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/CardModal.style.css";
 
-export default function CardModal() {
+export default function CardModal({ openCart }) {
 	return (
-		<div className="cart-modal" style={{ display: `none` }}>
+		<div className="cart-modal" style={openCart ? null : { display: `none` }}>
 			<div className="top">
 				<p className="cart-title">Cart</p>
 				<p className="total-price">Total Price: $125.00</p>

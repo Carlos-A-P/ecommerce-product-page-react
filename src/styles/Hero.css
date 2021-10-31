@@ -7,6 +7,7 @@ main {
 	max-height: 600px;
 	overflow: hidden;
 	position: relative;
+	cursor: default;
 }
 
 .main-image img {
@@ -102,8 +103,7 @@ h1 {
 	color: hsl(220, 14%, 75%);
 	font-weight: 700;
 	text-decoration: line-through;
-	font-size: 20px;
-	font-family: "Kumbh Sans", sans-serif;
+	font-size: 19px;
 }
 
 .quantity-wrapper {
@@ -143,6 +143,7 @@ h1 {
 	background-color: hsl(26, 100%, 55%);
 	border-radius: 10px;
 	box-shadow: 0px 15px 20px hsl(26, 100%, 55%, 0.3);
+	padding: 10px;
 }
 
 .add-to-cart:hover {
@@ -166,6 +167,27 @@ h1 {
 	transform: scale(0.9);
 }
 
+.modal-gallery {
+	/* position: relative; */
+	display: none;
+}
+
+@media (min-width: 540px) {
+	.prev,
+	.next {
+		height: 60px;
+		width: 60px;
+	}
+
+	.navigation-btns img {
+		height: 37%;
+	}
+
+	.quantity-wrapper button {
+		width: 200px;
+	}
+}
+
 @media (min-width: 750px) {
 	main {
 		width: 70vw;
@@ -174,8 +196,9 @@ h1 {
 	}
 
 	.main-image {
-		height: 68vw;
-		max-height: 590px;
+		height: auto;
+		max-height: none;
+		overflow: initial;
 	}
 
 	.main-image .previewed-img {
@@ -201,6 +224,7 @@ h1 {
 		height: auto;
 		max-height: 490px;
 		max-width: 490px;
+		cursor: pointer;
 	}
 
 	.main-image .previewed-img {
@@ -336,9 +360,9 @@ h1 {
 		filter: brightness(0);
 	}
 
-	.modal-gallery .close-btn:hover img {
-		background-color: hsl(26, 100%, 55%);
-		background-blend-mode: multiply;
+	.modal-gallery .close-btn:hover {
+		filter: invert(54%) sepia(59%) saturate(1743%) hue-rotate(346deg)
+			brightness(100%) contrast(102%);
 	}
 
 	.modal-preview {
@@ -357,6 +381,12 @@ h1 {
 	.modal-gallery .next {
 		height: 60px;
 		width: 60px;
+	}
+
+	.modal-gallery .prev:hover img,
+	.modal-gallery .next:hover img {
+		filter: invert(54%) sepia(59%) saturate(1743%) hue-rotate(346deg)
+			brightness(100%) contrast(102%);
 	}
 
 	.modal-gallery .navigation-btns img {

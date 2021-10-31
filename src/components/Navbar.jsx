@@ -18,6 +18,13 @@ export default function Navbar() {
 		setOpenMenu(!openMenu);
 	};
 
+	// open cart model
+	const [openCart, setOpenCart] = useState(false);
+	// when function is call, set the state to the opposite of what it is currently
+	// const toggleCart = () => {
+	// 	setOpenCart(!openCart);
+	// };
+
 	return (
 		<>
 			<header>
@@ -46,9 +53,9 @@ export default function Navbar() {
 						</div>
 						<div className="mobile-bg" onClick={toggleNavbar}></div>
 					</div>
-					<RightNav />
+					<RightNav setOpenCart={setOpenCart} state={false} />
 				</div>
-				<CardModal />
+				<CardModal openCart={openCart} />
 				<ProfileModal />
 			</header>
 		</>

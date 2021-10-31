@@ -1,4 +1,9 @@
+/* .cart-modal {
+	display: none;
+} */
+
 .cart-modal {
+	/* display: block; */
 	position: absolute;
 	top: 90px;
 	right: 50%;
