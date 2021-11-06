@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/CardModal.style.css";
 import { useSelector, useDispatch } from "react-redux";
 import { remove_items } from "../../actions";
+// testing git push
 
 const CardModal = React.forwardRef((props, cartRef) => {
 	const dispatch = useDispatch();
