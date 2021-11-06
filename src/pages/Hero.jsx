@@ -8,8 +8,12 @@ import PrevBtn from "../assets/images/icon-previous.svg";
 import NextBtn from "../assets/images/icon-next.svg";
 import "../styles/Hero.css";
 import shortid from "shortid";
+import { useDispatch } from "react-redux";
+import { add_items } from "../actions";
 
 const Hero = () => {
+	const dispatch = useDispatch();
+
 	// increase or decrease desired item quantity before checkout
 	const [itemQuantity, setItemQuantity] = useState(0);
 	const incNum = () => {
@@ -38,6 +42,8 @@ const Hero = () => {
 		setItems({ ...items, id: shortid.generate() });
 
 		console.log(items);
+
+		dispatch(add_items(items));
 	};
 
 	//update cart

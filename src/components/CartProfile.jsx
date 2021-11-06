@@ -3,8 +3,11 @@ import Cart from "../assets/images/icon-cart.svg";
 import Avatar from "../assets/images/image-avatar.png";
 import CardModal from "../components/modals/CardModal";
 import ProfileModal from "../components/modals/ProfileModal";
+import { useSelector } from "react-redux";
 
 export default function RightNav() {
+	const cartItems = useSelector((state) => state.cartItems);
+
 	// open cart model
 	const [openCart, setOpenCart] = useState(false);
 	const [openProfile, setOpenProfile] = useState(false);
@@ -74,7 +77,11 @@ export default function RightNav() {
 				>
 					<img src={Cart} alt="cart" />
 				</button>
-				<span id="cart-count">3</span>
+				{cartItems.length === 0 ? (
+					""
+				) : (
+					<span id="cart-count">{String(cartItems.length)}</span>
+				)}
 			</div>
 			<button
 				className="avatar"
