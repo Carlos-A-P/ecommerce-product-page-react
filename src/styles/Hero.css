@@ -183,15 +183,19 @@ h1 {
 		height: 37%;
 	}
 
+	.description-btn {
+		display: flex;
+		gap: 1rem;
+	}
+
 	.quantity-wrapper button {
-		width: 200px;
+		width: 100px;
 	}
 }
 
 @media (min-width: 750px) {
 	main {
 		width: 70vw;
-		/* max-width: 600px; */
 		margin: 3rem auto 0;
 	}
 
@@ -327,12 +331,22 @@ h1 {
 		right: 0;
 		bottom: 0;
 		overflow: hidden;
-		background-color: rgba(0, 0, 0, 0.753);
+		/* background-color: rgba(0, 0, 0, 0.753); */
 		z-index: 10;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.modal-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.753);
+		/* z-index: 9; */
 	}
 
 	.modal-gallery {

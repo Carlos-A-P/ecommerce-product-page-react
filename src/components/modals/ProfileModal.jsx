@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/ProfileModal.style.css";
 
-export default function ProfileModal() {
+const ProfileModal = React.forwardRef((props, profileRef) => {
 	return (
-		<div className="profile-modal" style={{ display: `none` }}>
+		<div className="profile-modal" ref={profileRef}>
 			<p className="top">Profile</p>
 			<div className="bottom">
 				<div className="list">
@@ -16,4 +16,6 @@ export default function ProfileModal() {
 			</div>
 		</div>
 	);
-}
+});
+
+export default ProfileModal;

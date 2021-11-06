@@ -6,70 +6,127 @@ import Image4 from "../assets/images/image-product-4.jpg";
 import ClosePrev from "../assets/images/icon-close.svg";
 import PrevBtn from "../assets/images/icon-previous.svg";
 import NextBtn from "../assets/images/icon-next.svg";
-import MinBtn from "../assets/images/icon-minus.svg";
-import PlusBtn from "../assets/images/icon-plus.svg";
 import "../styles/Hero.css";
+import shortid from "shortid";
 
-export default function Hero() {
+const Hero = () => {
+	// increase or decrease desired item quantity before checkout
 	const [itemQuantity, setItemQuantity] = useState(0);
 	const incNum = () => {
 		setItemQuantity(itemQuantity + 1);
+		setItems({
+			...items,
+			added_items: itemQuantity + 1,
+			total_price: 125 * (itemQuantity + 1),
+		});
 	};
 	const decNum = () => {
 		if (itemQuantity > 0) {
 			setItemQuantity(itemQuantity - 1);
+			setItems({
+				...items,
+				added_items: itemQuantity - 1,
+				total_price: 125 * (itemQuantity - 1),
+			});
 		} else {
 			setItemQuantity(0);
 		}
 	};
 
+	const addItem = () => {
+		// debugger;
+		setItems({ ...items, id: shortid.generate() });
+
+		console.log(items);
+	};
+
+	//update cart
+	const [items, setItems] = useState({
+		id: shortid.generate(),
+		added_items: 0,
+		total_price: 0,
+	});
+
 	// desktop gallery modal
 	const [photoModal, setPhotoModal] = useState(false);
 	const togglePhotoModal = () => {
 		setPhotoModal(!photoModal);
+		setActiveModalImage(activeImage);
 	};
 
 	// set active images in modal and preview view
 	const galleryArray = [Image1, Image2, Image3, Image4];
 
+	// set active image
 	const [activeImage, setActiveImage] = useState(galleryArray[0]);
 	const adjustActiveImage = (index) => {
 		setActiveImage(index);
+		// what ever the user's image was before opening modal will display as active modal image
+		setActiveModalImage(index);
 	};
 
+	// set active modal image
 	const [activeModalImage, setActiveModalImage] = useState(activeImage);
 	const adjustActiveModalImage = (index) => {
 		setActiveModalImage(index);
 	};
 
 	// navigation button function
-	const [imageNav, setImgNav] = useState(0);
-	const nextImg = () => {
-		setImgNav(imageNav + 1);
-		setActiveModalImage(galleryArray[imageNav + 1]);
-	};
-	const prevImg = () => {
-		if (imageNav > 0) {
-			setImgNav(imageNav - 1);
-		} else {
-			setImgNav(0);
+	// mobile image nav buttons
+	const [mobileImgNav, setMobileImgNav] = useState(0);
+	const mobileNextImg = (n) => {
+		// map through the image to define the similar image in the array
+		let mapImg = galleryArray.map((img) => {
+			return activeImage === img ? (img = true) : null;
+		});
+		// let the number for the mobile image equal the index number in the array
+		let mobileImgNav = mapImg.indexOf(true);
+		// set the variable show to equal the sum which is the position in the array
+		let show = mobileImgNav + n;
+		if (show < 0) {
+			show = 3;
+		} else if (show > 3) {
+			show = 0;
 		}
+		// when user clicks on the images, the position from the array will update
+		setMobileImgNav(show);
+		// display as active image
+		setActiveImage(galleryArray[show]);
+	};
+
+	// desktop image modal
+	const [imageNav, setImgNav] = useState(0);
+	const nextImg = (n) => {
+		let mapImg = galleryArray.map((img) => {
+			return activeModalImage === img ? (img = true) : null;
+		});
+		let imageNav = mapImg.indexOf(true);
+		let show = imageNav + n;
+		if (show < 0) {
+			show = 3;
+		} else if (show > 3) {
+			show = 0;
+		}
+		setImgNav(show);
+		setActiveModalImage(galleryArray[show]);
 	};
 
 	return (
 		<main>
 			<div className="gallery">
-				<button className="main-image" onClick={togglePhotoModal}>
-					<img className="previewed-img" src={activeImage} alt="item image" />
+				<div className="main-image">
+					<button onClick={togglePhotoModal}>
+						<img className="previewed-img" src={activeImage} alt="item image" />
+					</button>
 					<div className="navigation-btns">
-						<button className="prev">
+						<button className="prev" onClick={() => mobileNextImg(-1)}>
 							<img src={PrevBtn} alt="previous button" />
 						</button>
-						<button className="next">
+						<button className="next" onClick={() => mobileNextImg(1)}>
 							<img src={NextBtn} alt="next button" />
 						</button>
 					</div>
-				</button>
+				</div>
 				<div className="photo-options">
 					<button
 						className={`img img-1 ${activeImage === Image1 ? "selected" : ""}`}
@@ -109,16 +166,23 @@ export default function Hero() {
 							<p className="quantity">{itemQuantity}</p>
 							<button className="add" onClick={incNum}></button>
 						</div>
-						<button className="add-to-cart">
+						{/* cart button */}
+						<button
+							className="add-to-cart"
+							onClick={() => addItem()}
+							disabled={itemQuantity === 0}
+						>
 							<span>Add to cart</span>
 						</button>
 					</div>
 				</div>
 			</div>
+			{/* ===========================modal=========================== */}
 			<div
 				className="images-modal"
 				style={photoModal ? null : { display: `none` }}
 			>
+				<div className="modal-bg" onClick={togglePhotoModal}></div>
 				<div className="wrapper">
 					<div className="modal-gallery">
 						<button className="close-btn" onClick={togglePhotoModal}>
@@ -131,10 +195,10 @@ export default function Hero() {
 								alt="item image"
 							/>
 							<div className="navigation-btns">
-								<button className="prev" onClick={prevImg}>
+								<button className="prev" onClick={() => nextImg(-1)}>
 									<img src={PrevBtn} alt="previous button" />
 								</button>
-								<button className="next" onClick={nextImg}>
+								<button className="next" onClick={() => nextImg(1)}>
 									<img src={NextBtn} alt="next button" />
 								</button>
 							</div>
@@ -170,4 +234,6 @@ export default function Hero() {
 			</div>
 		</main>
 	);
-}
+};
+
+export default Hero;

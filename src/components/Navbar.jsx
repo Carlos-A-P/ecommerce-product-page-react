@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CardModal from "../components/modals/CardModal";
-import ProfileModal from "../components/modals/ProfileModal";
+// import CardModal from "../components/modals/CardModal";
+// import ProfileModal from "../components/modals/ProfileModal";
 import Logo from "../assets/images/logo.svg";
 import Close from "../assets/images/icon-close.svg";
 import Hamburger from "../assets/images/icon-menu.svg";
@@ -18,7 +18,7 @@ export default function Navbar() {
 		setOpenMenu(!openMenu);
 	};
 
-	const { render, openCart } = RightNav();
+	// const { render, openCart } = RightNav();
 
 	return (
 		<>
@@ -48,10 +48,8 @@ export default function Navbar() {
 						</div>
 						<div className="mobile-bg" onClick={toggleNavbar}></div>
 					</div>
-					{render}
+					<RightNav />
 				</div>
-				<CardModal {...openCart} />
-				<ProfileModal />
 			</header>
 		</>
 	);

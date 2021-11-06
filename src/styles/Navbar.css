@@ -62,8 +62,8 @@
 }
 
 .mobile-bg {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	position: absolute;
 	z-index: 9;
 	background-color: rgba(0, 0, 0, 0.548);
@@ -114,6 +114,10 @@
 
 .cart:hover {
 	filter: brightness(0);
+}
+
+.hidden {
+	display: none;
 }
 
 @media (min-width: 750px) {

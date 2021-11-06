@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/CardModal.style.css";
 
-export default function CardModal({ openCart }) {
+const CardModal = React.forwardRef((props, cartRef) => {
 	return (
-		<div className="cart-modal" style={openCart ? null : { display: `none` }}>
+		<div className="cart-modal" ref={cartRef}>
 			<div className="top">
 				<p className="cart-title">Cart</p>
 				<p className="total-price">Total Price: $125.00</p>
@@ -40,4 +40,9 @@ export default function CardModal({ openCart }) {
 			</div>
 		</div>
 	);
-}
+});
+
+// forwarding the reference into my component
+// const forwardCardModal = React.forwardRef(CardModal);
+
+export default CardModal;
