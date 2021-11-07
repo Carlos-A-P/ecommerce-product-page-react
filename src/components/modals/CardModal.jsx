@@ -14,11 +14,31 @@ const CardModal = React.forwardRef((props, cartRef) => {
 		console.log(item.id, ...newList);
 	};
 
+	let total = 0;
+
+	cartItems.map((item) => {
+		total += Number(item.total_price);
+		console.log(total);
+		return String(total);
+	});
+
+	const totalPrice = () => {
+		let total = 0;
+		cartItems.map((item) => {
+			return (total += item.total_price);
+		});
+		console.log(total);
+		return String(total);
+	};
+
 	return (
 		<div className="cart-modal" ref={cartRef}>
 			<div className="top">
 				<p className="cart-title">Cart</p>
-				<p className="total-price">Total Price: $125.00</p>
+				<p className="total-price">
+					Total Price: ${total}
+					.00
+				</p>
 			</div>
 			<div className="bottom">
 				{cartItems.length === 0 ? (
