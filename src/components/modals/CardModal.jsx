@@ -8,7 +8,6 @@ const CardModal = React.forwardRef((props, cartRef) => {
 	const cartItems = useSelector((state) => state.cartItems);
 
 	const deleteItem = (item) => {
-		// dispatch(remove_items(...cartItems));
 		let list = cartItems;
 		let newList = list.filter((x) => x.id !== item.id);
 		dispatch(remove_items(newList));
