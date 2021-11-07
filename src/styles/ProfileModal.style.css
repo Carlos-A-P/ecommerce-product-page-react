@@ -44,7 +44,6 @@
 
 .profile-modal .list a:hover {
 	color: hsl(26, 100%, 55%);
-	/* text-decoration: underline; */
 }
 
 .log-out {
@@ -54,7 +53,6 @@
 	font-weight: 700;
 	padding: 1.2rem;
 	border-radius: 10px;
-	/* width: 100%; */
 	margin: 1.5rem 1rem 1.7rem;
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+// setting up redux STORE and linking reducers to the highest component
 import { createStore } from "redux";
 import allReducers from "./reducers";
 import { Provider } from "react-redux";

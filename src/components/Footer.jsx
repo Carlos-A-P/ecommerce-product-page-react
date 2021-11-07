@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const FooterAtt = styled.footer`
-	/* position: absolute;
-	bottom: 15px;
-	width: 100%;
-	transform: translate(0, -50%); */
 	margin: 2rem 0 1rem;
 
 	.attribution {
@@ -14,6 +10,7 @@ const FooterAtt = styled.footer`
 		text-align: center;
 		color: hsl(219, 9%, 45%);
 	}
+
 	.attribution a {
 		color: hsl(26, 100%, 55%);
 	}

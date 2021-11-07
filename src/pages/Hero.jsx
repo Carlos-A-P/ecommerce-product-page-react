@@ -9,9 +9,11 @@ import NextBtn from "../assets/images/icon-next.svg";
 import "../styles/Hero.css";
 import shortid from "shortid";
 import { useDispatch } from "react-redux";
+// call the action I will use
 import { add_items } from "../actions";
 
 const Hero = () => {
+	// declare dispatch function
 	const dispatch = useDispatch();
 
 	// increase or decrease desired item quantity before checkout
@@ -37,16 +39,20 @@ const Hero = () => {
 		}
 	};
 
+	// add item to cart if quantity is more than 0
 	const addItem = () => {
-		// debugger;
+		if (itemQuantity === 0) {
+			alert("Please select a quantity");
+			return;
+		}
+		//update array id and reset item quantity
 		setItems({ ...items, id: shortid.generate() });
-
-		// console.log(items);
-
+		setItemQuantity(0);
+		// execute add item function to redux STORE
 		dispatch(add_items(items));
 	};
 
-	//update cart
+	//cart item object
 	const [items, setItems] = useState({
 		id: shortid.generate(),
 		added_items: 0,
@@ -173,11 +179,7 @@ const Hero = () => {
 							<button className="add" onClick={incNum}></button>
 						</div>
 						{/* cart button */}
-						<button
-							className="add-to-cart"
-							onClick={() => addItem()}
-							disabled={itemQuantity === 0}
-						>
+						<button className="add-to-cart" onClick={() => addItem()}>
 							<span>Add to cart</span>
 						</button>
 					</div>

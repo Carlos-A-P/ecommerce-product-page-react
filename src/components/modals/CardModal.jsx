@@ -4,32 +4,27 @@ import { useSelector, useDispatch } from "react-redux";
 import { remove_items } from "../../actions";
 
 const CardModal = React.forwardRef((props, cartRef) => {
+	// declare dispatch function
 	const dispatch = useDispatch();
+	// get cartItems array from STORE
 	const cartItems = useSelector((state) => state.cartItems);
-
+	// add the delete item function by filtering clicked item and returning new array
 	const deleteItem = (item) => {
+		// can't manipulate original array
 		let list = cartItems;
 		let newList = list.filter((x) => x.id !== item.id);
+		// execute remove item action
 		dispatch(remove_items(newList));
-		console.log(item.id, ...newList);
 	};
 
+	// finding the total amount from the items in cart
 	let total = 0;
-
+	// map the items in cart and add to total
 	cartItems.map((item) => {
 		total += Number(item.total_price);
 		console.log(total);
-		return String(total);
+		return total;
 	});
-
-	const totalPrice = () => {
-		let total = 0;
-		cartItems.map((item) => {
-			return (total += item.total_price);
-		});
-		console.log(total);
-		return String(total);
-	};
 
 	return (
 		<div className="cart-modal" ref={cartRef}>
@@ -70,16 +65,9 @@ const CardModal = React.forwardRef((props, cartRef) => {
 						<button className="checkout">Checkout</button>
 					</div>
 				)}
-
-				{/* <div className="empty-cart" style={{ display: `none` }}>
-					<p>Your cart is empty</p>
-				</div> */}
 			</div>
 		</div>
 	);
 });
-
-// forwarding the reference into my component
-// const forwardCardModal = React.forwardRef(CardModal);
 
 export default CardModal;

@@ -26,10 +26,6 @@ main {
 	justify-content: space-between;
 }
 
-/* .navigation-btns button:focus {
-	box-shadow: 0px 0px 0px 3px rgb(0, 0, 0);
-} */
-
 .navigation-btns img {
 	width: auto;
 	height: 45%;
@@ -168,7 +164,6 @@ h1 {
 }
 
 .modal-gallery {
-	/* position: relative; */
 	display: none;
 }
 
@@ -213,7 +208,6 @@ h1 {
 @media (min-width: 1100px) {
 	main {
 		width: 70vw;
-		/* max-width: 600px; */
 		margin: 6rem auto 0;
 		display: flex;
 		justify-content: center;
@@ -290,7 +284,6 @@ h1 {
 	button.img.selected {
 		background-color: rgb(213 190 190);
 		background-blend-mode: overlay;
-		/* box-shadow: 0px 0px 0px 3px rgb(255 125 27); */
 	}
 
 	button.img.selected {
@@ -331,7 +324,6 @@ h1 {
 		right: 0;
 		bottom: 0;
 		overflow: hidden;
-		/* background-color: rgba(0, 0, 0, 0.753); */
 		z-index: 10;
 		display: flex;
 		flex-direction: column;
@@ -346,7 +338,6 @@ h1 {
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.753);
-		/* z-index: 9; */
 	}
 
 	.modal-gallery {
@@ -365,6 +356,7 @@ h1 {
 			brightness(92%) contrast(88%);
 		margin-right: -1rem;
 		padding: 1rem;
+		transition: none;
 	}
 
 	.modal-gallery .close-btn img {
@@ -404,7 +396,6 @@ h1 {
 	}
 
 	.modal-gallery .navigation-btns img {
-		/* width: auto; */
 		height: 37%;
 	}
 
