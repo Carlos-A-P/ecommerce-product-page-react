@@ -3,7 +3,7 @@ const cartData = (state = [], action) => {
 		case "ADD_TO_CART":
 			return [...state, action.payload];
 		case "REMOVE_ITEM":
-			return [...state, action.remove];
+			return [...action.payload];
 		default:
 			return state;
 	}

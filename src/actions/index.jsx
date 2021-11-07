@@ -5,6 +5,7 @@ export const add_items = (arr) => {
 	};
 };
 export const remove_items = (arr) => {
+	console.log(arr);
 	return {
 		type: "REMOVE_ITEM",
 		payload: arr,

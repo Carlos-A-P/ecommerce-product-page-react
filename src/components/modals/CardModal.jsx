@@ -2,14 +2,17 @@ import React from "react";
 import "../../styles/CardModal.style.css";
 import { useSelector, useDispatch } from "react-redux";
 import { remove_items } from "../../actions";
-// testing git push
 
 const CardModal = React.forwardRef((props, cartRef) => {
 	const dispatch = useDispatch();
 	const cartItems = useSelector((state) => state.cartItems);
 
-	const deleteItem = () => {
-		dispatch(remove_items(...cartItems));
+	const deleteItem = (item) => {
+		// dispatch(remove_items(...cartItems));
+		let list = cartItems;
+		let newList = list.filter((x) => x.id !== item.id);
+		dispatch(remove_items(newList));
+		console.log(item.id, ...newList);
 	};
 
 	return (
@@ -26,9 +29,9 @@ const CardModal = React.forwardRef((props, cartRef) => {
 				) : (
 					<div className="occupied-cart">
 						<div className="item-list">
-							{cartItems.map((item) => {
+							{cartItems.map((item, index) => {
 								return (
-									<div className="item" id={item.id}>
+									<div className="item" id={item.id} key={index}>
 										<div className="item-prev"></div>
 										<div className="cart-item-info">
 											<p className="item-name">Fall Limited Edition Sneakers</p>
@@ -37,7 +40,10 @@ const CardModal = React.forwardRef((props, cartRef) => {
 												<span>${item.total_price}.00</span>
 											</p>
 										</div>
-										<button className="del" onClick={deleteItem}></button>
+										<button
+											className="del"
+											onClick={() => deleteItem(item)}
+										></button>
 									</div>
 								);
 							})}

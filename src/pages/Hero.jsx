@@ -41,7 +41,7 @@ const Hero = () => {
 		// debugger;
 		setItems({ ...items, id: shortid.generate() });
 
-		console.log(items);
+		// console.log(items);
 
 		dispatch(add_items(items));
 	};
