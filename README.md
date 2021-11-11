@@ -34,10 +34,7 @@ Users should be able to:
 
 - React.js
 - Redux
-- Semantic HTML5 markup
 - CSS custom properties
-- Media Queries
-- Local Storage
 
 ### What I learned
 
